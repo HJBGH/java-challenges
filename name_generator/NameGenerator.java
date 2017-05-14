@@ -16,6 +16,7 @@ public class NameGenerator {
 	{
 		if(validateArgs(args))
 		{
+			System.out.println("eat shit");
 			this.args = args;
 		}
 		else
@@ -26,14 +27,18 @@ public class NameGenerator {
 	
 	public void generate()
 	{
+		System.out.println("FUCK YOU");
 		//This is going to end up as a monolithic method
 		
 	}
 	
-	private boolean validateArgs(String[] args)
+	private boolean validateArgs(String args[])
 	{
 		//args[4] being the optional user entered name quota
-		return ((args.length < MIN_EXPECTED_ARGS || args.length > MAX_EXPECTED_ARGS) || !(args[4].matches("[0-9]+")));
+		//doesn't validate against illegal filenames
+		return (args.length == 5) ? 
+		!((args.length < MIN_EXPECTED_ARGS || args.length > MAX_EXPECTED_ARGS) || !(args[4].matches("[0-9]+"))):
+		!(args.length < MIN_EXPECTED_ARGS || args.length > MAX_EXPECTED_ARGS);
 	}
 	
 
