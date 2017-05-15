@@ -28,17 +28,17 @@ public class NameGenerator {
 		{
 			validateArgs(args);
 			this.args = args;
-			
 		}
 		catch (Exception e)
 		{
+			System.out.println("Caught exception in NameGenerator constructor");
 			throw e;
 		}
 	}
 	
 	public void generate() throws Exception
 	{
-		System.out.println("Generating names");
+		System.out.println("Generating names...");
 		try{
 			PrintWriter printWriter = new PrintWriter("generated_names", "UTF-8");
 			int quota = ((args.length == 4) ? DEFAULT_NAME_QUOTA : Integer.parseInt(args[USERS_NAME_QUOTA_LOCATION]));
@@ -47,23 +47,27 @@ public class NameGenerator {
 							new File(args[SNAMES]), 
 							new File(args[ADDR]),
 							new File(args[MOB_FON])}; 
-			
+			System.out.println("files opened");
 			for(int x=0; x<quota; x++)
 			{
 				String outline = "";
-				for(int i=0; i<args.length; i++){
+				for(int i=0; i<files.length; i++){
 					outline = outline + getSample(files[i]) + "\n";
+					
 				}
+				System.out.println(outline);
 				//write the outline to the outfile
 				printWriter.append(outline);
 				
 			}
+			printWriter.close();
 		}
 		catch (Exception e)
 		{
+			System.out.println("Caught exception in generate method");
 			throw e;
 		}
-		//This is going to end up as a monolithic method
+
 		
 	}
 	
@@ -71,10 +75,20 @@ public class NameGenerator {
 	{
 		//args[4] being the optional user entered name quota
 		//doesn't validate against illegal filenames 
-		if(((args.length < MIN_EXPECTED_ARGS || args.length > MAX_EXPECTED_ARGS) || !(args[4].matches("[0-9]+"))) == true)
+		if(((args.length < MIN_EXPECTED_ARGS || args.length > MAX_EXPECTED_ARGS)) == true)
 		{
 			throw new Exception("Arguments invalid");
 		}
+		//no idea how to re-phrase nested ifs
+		if(args.length==5)
+		{
+			if((args[4].matches("[0-9]+")) == false)
+			{
+				throw new Exception("Argument invalid, number of names must be an integer");
+			}
+		}
+		
+			
 		return;
 	}
 	

@@ -10,8 +10,7 @@ public class Challenges_main {
 			nameGen = new NameGenerator(args);
 			nameGen.generate();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		} //NameGenerator has no fancy constructor
+		} 
 	}
 }
