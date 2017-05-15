@@ -11,7 +11,7 @@ public class Challenges_main {
 			nameGen.generate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		} //NameGenerator has no fancy constructor
 	}
 }
