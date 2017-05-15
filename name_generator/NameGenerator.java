@@ -28,8 +28,20 @@ public class NameGenerator {
 		{
 			validateArgs(args);
 			this.args = args;
+			
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
+	}
+	
+	public void generate() throws Exception
+	{
+		System.out.println("Generating names");
+		try{
 			PrintWriter printWriter = new PrintWriter("generated_names", "UTF-8");
-			int quota = (int) ((args.length == 4) ? DEFAULT_NAME_QUOTA : args[USERS_NAME_QUOTA_LOCATION]);
+			int quota = ((args.length == 4) ? DEFAULT_NAME_QUOTA : Integer.parseInt(args[USERS_NAME_QUOTA_LOCATION]));
 			// no good solution here.
 			File[] files = {new File(args[FNAMES]),
 							new File(args[SNAMES]), 
@@ -51,11 +63,6 @@ public class NameGenerator {
 		{
 			throw e;
 		}
-	}
-	
-	public void generate()
-	{
-		System.out.println("Generating names");
 		//This is going to end up as a monolithic method
 		
 	}
