@@ -2,13 +2,14 @@ package challenges_main;
 
 import name_generator.*;
 import higher_lower.*;
+import fizzbuzz.*;
 
 /** Main class for executing the Classes in which challenges are implemented/solved */
 public class Challenges_main {
 	public static void main(String[] args){
-		HigherLower higherLower = new HigherLower();
+		FizzBuzz fizzbuzz = new FizzBuzz();
 		try {
-			higherLower.play();
+			fizzbuzz.run();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} 
