@@ -37,6 +37,19 @@ public class HigherLower {
 				if(guess == target)
 				{
 					System.out.println("You got it!");
+					//this is repeated to avoid recursion
+					if(playAgain() == true)
+					{
+						turn = 0;
+					}
+					else
+					{
+					return;
+					}
+				}
+				if(!(turn < TURNS))
+				{
+					System.out.println("You fucked up!");
 					if(playAgain() == true)
 					{
 						turn = 0;
@@ -55,9 +68,7 @@ public class HigherLower {
 			}
 			
 		}
-		//if it gets down here then the player hasn't won
-		System.out.println("You fucked up!");
-		
+		//this closer shouldn't be here
 		inputScanner.close();
 		return;
 	}
