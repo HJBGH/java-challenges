@@ -8,9 +8,9 @@ import reverse_string.StringReverse;
 /** Main class for instantiating the Classes in which challenges are implemented/solved */
 public class Challenges_main {
 	public static void main(String[] args){
-		StringReverse.ReverseString("I'dLikeToRideMyBicycle,BiCycle,BICYCLE,");
-		StringReverse.ReverseString("yak");
-		StringReverse.ReverseString("i");
-		StringReverse.ReverseString("four");
+		System.out.println(StringReverse.ReverseString("I'dLikeToRideMyBicycle,BiCycle,BICYCLE,"));
+		System.out.println(StringReverse.ReverseString("yak"));
+		System.out.println(StringReverse.ReverseString("i"));
+		System.out.println(StringReverse.ReverseString("four"));
 	}
 }
