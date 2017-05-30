@@ -3,6 +3,7 @@ package challenges_main;
 import name_generator.*;
 import higher_lower.*;
 import fizzbuzz.*;
+import reverse_string.*;
 
 /** Main class for executing the Classes in which challenges are implemented/solved */
 public class Challenges_main {
